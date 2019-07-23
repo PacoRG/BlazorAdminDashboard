@@ -1,0 +1,86 @@
+@import "../_theme-variables.scss";
+
+.coms-desktop-header-content {
+    height: 100%;
+
+    > div {
+        height: 100%;
+    }
+}
+
+.hidden-navigation {
+    #logo-group {
+        padding-left: 45px;
+    }
+}
+
+#logo-group > span {
+    line-height: 0;
+}
+
+#logo {
+    width: 32px;
+    height: $coms-navbar-height - 22;
+    padding-left: 5px;
+
+    img {
+        width: 23px;
+        height: 24px;
+        padding-left: 7px;
+    }
+}
+
+#logo-team {
+    padding-right: 15px;
+
+    img {
+        width: 96px;
+        height: 24px;
+        padding-left: 7px;
+    }
+}
+
+#logo-group {
+    font-family: "Zetta Sans";
+
+    div#app-name {
+        text-transform: uppercase;
+        color: #000;
+        font-size: 16px;
+        font-weight: 500;
+        padding-top: 2px;
+    }
+
+    div#app-description {
+        color: #000;
+        font-size: 12px;
+        text-transform: uppercase;
+        padding-top: 1px;
+    }
+
+    div#app-version {
+        color: #000;
+        font-size: 12px;
+        padding-top: 1px;
+    }
+}
+
+.img-circle {
+    font-size: 1.5rem;
+    color: #62727b;
+    padding-right: 5px;
+}
+
+.coms-user-data {
+    color: #102027;
+    line-height: 11px;
+    padding-top: 2px;
+
+    .coms-user-name {
+        font-size: .75rem;
+    }
+
+    .coms-user-plan {
+        font-size: .625rem;
+    }
+}

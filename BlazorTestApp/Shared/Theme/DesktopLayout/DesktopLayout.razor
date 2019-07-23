@@ -1,0 +1,66 @@
+@inject IThemeMessageService<ThemeConfigData> ThemeMessageService
+@inject IJSRuntime JSRuntime
+
+<div class="coms-desktop-layout @(IsMinified ? "minified" : null)
+                                @(IsHiddenHeader ? "hidden-header" : null)
+                                @(IsHiddenFooter ? "hidden-footer" : null)
+                                @(IsHiddenNavigation ? "hidden-navigation" : null)
+     ">
+    @ChildContent
+</div>
+
+@code {
+
+    private bool IsMinified { get; set; }
+    private bool IsHiddenHeader { get; set; } = false;
+    private bool IsHiddenFooter { get; set; } = false;
+    private bool IsHiddenNavigation { get; set; } = false;
+
+    private LocalStorageData LocalStorageData { get; set; } = new LocalStorageData();
+
+    [Parameter] RenderFragment ChildContent { get; set; }
+
+    protected override void OnInit()
+    {
+
+        ThemeMessageService.GetMessage().Subscribe(async p =>
+        {
+
+            string json = JsonSerializer.ToString(p);
+            Console.WriteLine(json);
+
+            if (p.Emitter == ThemeMessageEmitter.DesktopMinifyMenu)
+            {
+
+                IsMinified = p.Data.IsMinified;
+
+                LocalStorageData.IsMinified = p.Data.IsMinified;
+                await LocalStorage.SetAsync(JSRuntime, "BlazorTestApp", LocalStorageData);
+            };
+
+            IsHiddenHeader = p.Data.IsHeaderHidden;
+            IsHiddenFooter = p.Data.IsFooterHidden;
+            IsHiddenNavigation = p.Data.IsNavigationHidden;
+
+            StateHasChanged();
+        });
+    }
+
+    protected override async Task OnInitAsync()
+    {
+
+        LocalStorageData.Rights = new Rights();
+        LocalStorageData.CurrentUser = new CurrentUser();
+
+        var localStorageData = await LocalStorage.GetAsync<LocalStorageData>(JSRuntime, "BlazorTestApp");
+
+        if (localStorageData != null)
+        {
+
+            LocalStorageData = localStorageData;
+            IsMinified = LocalStorageData.IsMinified;
+
+            StateHasChanged();
+        }
+    }
+}

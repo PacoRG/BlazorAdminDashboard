@@ -1,0 +1,14 @@
+<div class="coms-desktop-footer">
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            @ChildContent
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+
+}

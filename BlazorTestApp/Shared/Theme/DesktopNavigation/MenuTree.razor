@@ -1,0 +1,33 @@
+<div class="coms-tree-cmp @OpenCssClass">
+    <li>
+        <span class="link-active-bar"></span>
+        <MenuTreeLink Menu="@Menu" OnLinkNodeClick="@OnLinkNodeClicked"></MenuTreeLink>
+
+        @if (Menu.Children.Count > 0)
+        {
+            <ul>
+                @foreach (var item in Menu.Children)
+                {
+                    <MenuTree Menu="@item"></MenuTree>
+                }
+
+            </ul>
+        }
+
+    </li>
+</div>
+
+@code {
+
+    private bool IsOpen { get; set; } = false;
+
+    private void OnLinkNodeClicked(bool IsNodeOpen)
+    {
+        IsOpen = IsNodeOpen;
+    }
+
+    [Parameter]
+    private NavigationMenu Menu { get; set; }
+
+    string OpenCssClass => IsOpen ? "open" : null;
+}

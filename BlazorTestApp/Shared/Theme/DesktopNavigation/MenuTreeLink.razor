@@ -1,0 +1,65 @@
+<div class="coms-tree-cmp-link">
+
+    @if (Menu.Children.Count > 0)
+    {
+        <a @onclick="@Toggle">
+            <span class="coms-link-icon d-flex justify-content-center align-items-center">
+                <i class="@Menu.IconClass"></i>
+            </span>
+            <span class="menu-item-parent">@Menu.Text</span>
+            <b class="collapse-sign">
+                @if (!IsOpen)
+                {
+                    <span>
+                        <i class="fas fa-angle-right"></i>
+                    </span>
+                }
+
+                @if (IsOpen)
+                {
+                    <span>
+                        <i class="fas fa-angle-down"></i>
+                    </span>
+                }
+            </b>
+        </a>
+    }
+
+    @if (Menu.Children.Count <= 0 && Menu.IsNode)
+    {
+        <NavLink href="@Menu.Link">
+            <span class="coms-link-icon d-flex justify-content-center align-items-center">
+                <i class="@Menu.IconClass"></i>
+            </span>
+            <span class="menu-item-parent">@Menu.Text</span>
+        </NavLink>
+    }
+
+
+    @if (Menu.Children.Count <= 0 && !Menu.IsNode)
+    {
+        <NavLink href="@Menu.Link">
+            <span>@Menu.Text</span>
+        </NavLink>
+    }
+</div>
+
+@code {
+
+    private bool IsOpen { get; set; } = false;
+
+
+    [Parameter]
+    public NavigationMenu Menu { get; set; }
+
+
+    [Parameter]
+    private EventCallback<bool> OnLinkNodeClick { get; set; }
+
+    async Task Toggle()
+    {
+        IsOpen = !IsOpen;
+        await OnLinkNodeClick.InvokeAsync(IsOpen);
+    }
+}
+

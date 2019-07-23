@@ -1,0 +1,23 @@
+@inject IThemeMessageService<ThemeConfigData> ThemeMessageService
+
+<div class="coms-desktop-content @(IsDesktopMode ? "destok-layout" : null)">@ChildContent</div>
+
+@code {
+
+    private bool IsDesktopMode { get; set; } = false;
+
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+
+    protected override void OnInit()
+    {
+
+        ThemeMessageService.GetMessage().Subscribe(p =>
+        {
+
+            IsDesktopMode = p.Data.IsDesktopMode;
+            StateHasChanged();
+        });
+    }
+
+}

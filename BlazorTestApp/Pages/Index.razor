@@ -1,0 +1,30 @@
+﻿@inject IThemeMessageService<ThemeConfigData> ThemeMessageService
+@page "/"
+
+<div class="container-fluid">
+    <h1>Dashboard</h1>
+</div>
+
+@code {
+
+    protected override void OnInit()
+    {
+
+        var themeConfigData = new ThemeConfigData()
+        {
+            IsDesktopMode = true,
+            IsFooterHidden = false,
+            IsHeaderHidden = false,
+            IsNavigationHidden = false
+        };
+
+        var actionMessage = new ActionMessage<ThemeConfigData>
+        {
+            Emitter = ThemeMessageEmitter.DefaultComponent,
+            Data = themeConfigData
+        };
+
+        ThemeMessageService.SendMessage(actionMessage);
+    }
+}
+

@@ -1,0 +1,11 @@
+<div class="coms-desktop-navigation">
+    <aside>
+        @ChildContent
+    </aside>
+</div>
+
+@code {
+
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+}
