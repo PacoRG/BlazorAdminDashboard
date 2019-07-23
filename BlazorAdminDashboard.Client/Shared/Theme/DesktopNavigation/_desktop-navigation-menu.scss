@@ -4,7 +4,7 @@
  * NAV
  * Menu CSS is learnt from: http://experiments.wemakesites.net/css3-treeview.html
  */
-.coms-desktop-navigation-menu {
+.dnet-desktop-navigation-menu {
     flex: 1 0 auto;
     min-height: 100%;
 }
@@ -54,12 +54,12 @@ nav ul {
     color: white;
 }
 
-nav ul .coms-tree-cmp.open ul {
+nav ul .dnet-tree-cmp.open ul {
     display: block;
     padding: 0;
 }
 
-nav > ul > .coms-tree-cmp > li > ul::before {
+nav > ul > .dnet-tree-cmp > li > ul::before {
     border-left: 1px solid $primary-light;
     bottom: 1.23846154rem;
     content: "";
@@ -70,7 +70,7 @@ nav > ul > .coms-tree-cmp > li > ul::before {
     z-index: 2;
 }
 
-nav > ul > .coms-tree-cmp > li > ul .coms-tree-cmp > li > .coms-tree-cmp-link > a::before {
+nav > ul > .dnet-tree-cmp > li > ul .dnet-tree-cmp > li > .dnet-tree-cmp-link > a::before {
     background: $primary-light;
     border-radius: 50%;
     content: "";
@@ -83,12 +83,12 @@ nav > ul > .coms-tree-cmp > li > ul .coms-tree-cmp > li > .coms-tree-cmp-link > 
     z-index: 2;
 }
 
-nav > ul > .coms-tree-cmp > li > ul .coms-tree-cmp > li > .coms-tree-cmp-link > a {
+nav > ul > .dnet-tree-cmp > li > ul .dnet-tree-cmp > li > .dnet-tree-cmp-link > a {
     padding-left: 2.8rem;
     position: relative;
 }
 
-nav > ul > .coms-tree-cmp.open > li:last-child {
+nav > ul > .dnet-tree-cmp.open > li:last-child {
     border-bottom: none;
 }
 
@@ -137,7 +137,7 @@ nav ul ul {
     display: none;
 }
 
-nav ul li .coms-tree-cmp-link {
+nav ul li .dnet-tree-cmp-link {
     width: 100%;
 }
 
@@ -172,7 +172,7 @@ nav ul li a .menu-item-parent {
     margin: 0 .78461538rem;
 }
 
-nav ul li a .coms-link-icon {
+nav ul li a .dnet-link-icon {
     font-size: .8rem;
     height: 16px;
     width: 16px;
@@ -220,32 +220,32 @@ nav ul li a b {
     overflow-x: hidden;
 }
 
-.minified nav > ul > .coms-tree-cmp > li > ul {
+.minified nav > ul > .dnet-tree-cmp > li > ul {
     display: none !important;
     overflow: hidden;
 }
 
-.minified nav > ul > .coms-tree-cmp > li > .coms-tree-cmp-link > a > .menu-item-parent {
+.minified nav > ul > .dnet-tree-cmp > li > .dnet-tree-cmp-link > a > .menu-item-parent {
     display: none;
 }
 
-.minified nav > ul > .coms-tree-cmp > li > .coms-tree-cmp-link > a > b {
+.minified nav > ul > .dnet-tree-cmp > li > .dnet-tree-cmp-link > a > b {
     display: none;
 }
 
 /* Minified Menu Child style*/
-.minified nav > ul > .coms-tree-cmp > li:hover > .coms-tree-cmp-link > a > .menu-item-parent,
-.minified nav > ul > .coms-tree-cmp > li:hover > ul {
+.minified nav > ul > .dnet-tree-cmp > li:hover > .dnet-tree-cmp-link > a > .menu-item-parent,
+.minified nav > ul > .dnet-tree-cmp > li:hover > ul {
     display: block !important;
 }
 
-.minified nav > ul > .coms-tree-cmp > li:hover > ul {
+.minified nav > ul > .dnet-tree-cmp > li:hover > ul {
     padding: 0 0 .625rem;
 }
 
 $floating-menu-left: 2.85rem;
 
-.minified nav > ul > .coms-tree-cmp > li > .coms-tree-cmp-link > a > .menu-item-parent {
+.minified nav > ul > .dnet-tree-cmp > li > .dnet-tree-cmp-link > a > .menu-item-parent {
     display: none;
     position: absolute;
     left: $floating-menu-left;
@@ -260,7 +260,7 @@ $floating-menu-left: 2.85rem;
     margin: 0;
 }
 
-.minified nav > ul > .coms-tree-cmp > li > ul {
+.minified nav > ul > .dnet-tree-cmp > li > ul {
     display: none !important;
     position: absolute;
     left: $floating-menu-left;
@@ -273,7 +273,7 @@ $floating-menu-left: 2.85rem;
     overflow: hidden;
 }
 
-.minified nav ul > .coms-tree-cmp > li > ul > .coms-tree-cmp > li > ul {
+.minified nav ul > .dnet-tree-cmp > li > ul > .dnet-tree-cmp > li > ul {
     position: relative;
     left: .8125rem;
     border: none;
@@ -282,16 +282,16 @@ $floating-menu-left: 2.85rem;
     width: $asideWidth - 21px;
 }
 
-.minified nav > ul > .coms-tree-cmp > li > ul > .coms-tree-cmp > li > .coms-tree-cmp-link > a {
+.minified nav > ul > .dnet-tree-cmp > li > ul > .dnet-tree-cmp > li > .dnet-tree-cmp-link > a {
     justify-content: flex-start !important;
     padding-left: .8rem;
 }
 
-.minified nav > ul > .coms-tree-cmp > li > ul::before {
+.minified nav > ul > .dnet-tree-cmp > li > ul::before {
     content: none;
 }
 
-.minified nav > ul > .coms-tree-cmp > li > ul .coms-tree-cmp > li > .coms-tree-cmp-link > a::before {
+.minified nav > ul > .dnet-tree-cmp > li > ul .dnet-tree-cmp > li > .dnet-tree-cmp-link > a::before {
     content: none;
 }
 

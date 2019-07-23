@@ -1,11 +1,11 @@
 @import "../_theme-variables.scss";
 
-.coms-desktop-footer {
-  background-color: $coms-footer-background;
-  height: $coms-footer-height;
+.dnet-desktop-footer {
+  background-color: $dnet-footer-background;
+  height: $dnet-footer-height;
   padding: 0 45px 0 0;
 }
 
-.hidden-footer .coms-desktop-footer {
+.hidden-footer .dnet-desktop-footer {
   display: none;
 }

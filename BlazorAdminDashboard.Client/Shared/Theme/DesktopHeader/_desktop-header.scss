@@ -1,19 +1,19 @@
 @import "../_theme-variables.scss";
 
 .minified {
-  .coms-desktop-header {
+  .dnet-desktop-header {
     margin: 0 0 0 -45px;
     z-index: 99;
   }
 }
 
-.hidden-header .coms-desktop-header {
+.hidden-header .dnet-desktop-header {
   display: none;
 }
 
-.coms-desktop-header {
+.dnet-desktop-header {
   background-color: white;
-  height: $coms-navbar-height;
+  height: $dnet-navbar-height;
   margin: 0 0 0 -220px;
   z-index: 99;
 }

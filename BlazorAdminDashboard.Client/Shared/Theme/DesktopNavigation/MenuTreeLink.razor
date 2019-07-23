@@ -1,9 +1,9 @@
-<div class="coms-tree-cmp-link">
+<div class="dnet-tree-cmp-link">
 
     @if (Menu.Children.Count > 0)
     {
         <a @onclick="@Toggle">
-            <span class="coms-link-icon d-flex justify-content-center align-items-center">
+            <span class="dnet-link-icon d-flex justify-content-center align-items-center">
                 <i class="@Menu.IconClass"></i>
             </span>
             <span class="menu-item-parent">@Menu.Text</span>
@@ -28,7 +28,7 @@
     @if (Menu.Children.Count <= 0 && Menu.IsNode)
     {
         <NavLink href="@Menu.Link">
-            <span class="coms-link-icon d-flex justify-content-center align-items-center">
+            <span class="dnet-link-icon d-flex justify-content-center align-items-center">
                 <i class="@Menu.IconClass"></i>
             </span>
             <span class="menu-item-parent">@Menu.Text</span>
