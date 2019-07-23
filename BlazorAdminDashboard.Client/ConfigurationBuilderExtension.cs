@@ -1,17 +1,16 @@
-﻿using BlazorTestApp.Infrastructure.HelperClasses;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using BlazorAdminDashboard.Client.Infrastructure.HelperClasses;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Primitives;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.Json.Serialization;
 
-namespace BlazorTestApp
+namespace BlazorAdminDashboard.Client
 {
     public static class ServiceCollectionConfigurationBuilderExtension
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BlazorTestApp.Shared.Theme
+namespace BlazorAdminDashboard.Client.Shared.Theme
 {
     public interface IThemeMessageService<T>
     {

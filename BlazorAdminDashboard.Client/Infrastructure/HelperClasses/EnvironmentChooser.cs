@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BlazorTestApp.Infrastructure.HelperClasses
+namespace BlazorAdminDashboard.Client.Infrastructure.HelperClasses
 {
     public class EnvironmentChooser
     {

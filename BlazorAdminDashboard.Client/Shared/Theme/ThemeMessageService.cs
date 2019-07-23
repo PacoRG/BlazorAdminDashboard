@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reactive.Subjects;
 
-namespace BlazorTestApp.Shared.Theme
+namespace BlazorAdminDashboard.Client.Shared.Theme
 {
     public class ThemeMessageService<T>: IThemeMessageService<T>
     {

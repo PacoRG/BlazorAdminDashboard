@@ -1,7 +1,7 @@
-﻿using Microsoft.JSInterop;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Microsoft.JSInterop;
 
-namespace BlazorTestApp.Infrastructure.HelperClasses
+namespace BlazorAdminDashboard.Client.Infrastructure.HelperClasses
 {
     public static class LocalStorage
     {

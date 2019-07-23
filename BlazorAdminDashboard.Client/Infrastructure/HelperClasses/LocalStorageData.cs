@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BlazorTestApp.Infrastructure.HelperClasses
+namespace BlazorAdminDashboard.Client.Infrastructure.HelperClasses
 {
     public class LocalStorageData
     {

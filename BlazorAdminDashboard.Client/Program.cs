@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Hosting;
 
-namespace BlazorTestApp
+namespace BlazorAdminDashboard.Client
 {
     public class Program
     {

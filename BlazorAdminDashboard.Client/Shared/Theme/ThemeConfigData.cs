@@ -1,4 +1,4 @@
-﻿namespace BlazorTestApp.Shared.Theme
+﻿namespace BlazorAdminDashboard.Client.Shared.Theme
 {
     public class ThemeConfigData
     {

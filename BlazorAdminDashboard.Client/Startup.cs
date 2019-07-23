@@ -1,9 +1,9 @@
-using BlazorTestApp.Infrastructure.HelperClasses;
-using BlazorTestApp.Shared.Theme;
+using BlazorAdminDashboard.Client.Infrastructure.HelperClasses;
+using BlazorAdminDashboard.Client.Shared.Theme;
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BlazorTestApp
+namespace BlazorAdminDashboard.Client
 {
     public class Startup
     {
