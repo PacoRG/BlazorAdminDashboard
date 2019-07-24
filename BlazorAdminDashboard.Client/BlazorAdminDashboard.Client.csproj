@@ -17,6 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="assets\scss\site.scss" />
+    <Content Include="assets\scss\_mixins.scss" />
     <Content Include="Shared\Theme\_theme.css">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
