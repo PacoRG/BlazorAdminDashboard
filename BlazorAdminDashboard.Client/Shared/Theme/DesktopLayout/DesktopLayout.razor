@@ -25,6 +25,7 @@
 
         ThemeMessageService.GetMessage().Subscribe(async p =>
         {
+            //string value = JsonSerializer.ToString(p);
 
             if (p.Emitter == ThemeMessageEmitter.DesktopMinifyMenu)
             {
