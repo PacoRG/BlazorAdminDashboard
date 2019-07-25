@@ -10,5 +10,8 @@ Features
 - Customizable application menu.
 - Customizable application's name, description and version.
 
-Live demo
+Live demo:
 https://amuste.github.io/blazor-admin-dashboard/
+
+You can find deployed files here:
+https://github.com/amuste/blazor-admin-dashboard
