@@ -9,6 +9,9 @@ https://remibou.github.io/Configuring-a-Blazor-app/
 - Show/Hide Header, Foooter and Navigation per view. 
 - Customizable application menu.
 - Customizable application's name, description and version.
+- Theme's configuration saved to LocalStorage
+- Latest Font Awesome icons
+- Live update of Theme's configuration using Rx.Net 
 
 # Live demo:
 https://amuste.github.io/blazor-admin-dashboard/
