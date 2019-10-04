@@ -4,12 +4,12 @@
 
 @code {
 
-    private bool IsDesktopMode { get; set; } = false;
+    public bool IsDesktopMode { get; set; } = false;
 
     [Parameter]
-    private RenderFragment ChildContent { get; set; }
+    public RenderFragment ChildContent { get; set; }
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
 
         ThemeMessageService.GetMessage().Subscribe(p =>

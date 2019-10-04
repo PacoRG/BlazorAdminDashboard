@@ -11,10 +11,10 @@
 
 @code {
 
-    private bool IsMinified { get; set; }
-    private LocalStorageData LocalStorageData { get; set; } = new LocalStorageData();
+    public bool IsMinified { get; set; }
+    public LocalStorageData LocalStorageData { get; set; } = new LocalStorageData();
 
-    private void Toggle()
+    public void Toggle()
     {
         IsMinified = !IsMinified;
 
@@ -31,7 +31,7 @@
         ThemeMessageService.SendMessage(actionMessage);
     }
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
 
         LocalStorageData.Rights = new Rights();

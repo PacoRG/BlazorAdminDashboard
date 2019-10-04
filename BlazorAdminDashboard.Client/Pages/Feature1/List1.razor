@@ -1,5 +1,5 @@
 ﻿@inject IThemeMessageService<ThemeConfigData> ThemeMessageService
-@inject IUriHelper UriHelper
+@inject NavigationManager NavigationManager
 @page "/Feature1/List"
 @implements IDisposable
 
@@ -30,7 +30,7 @@
 
     private int RowNumber { get; set; } = 1000;
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
 
         var themeConfigData = new ThemeConfigData()
@@ -52,7 +52,7 @@
 
     private void OnBack()
     {
-        UriHelper.NavigateTo("/");
+        NavigationManager.NavigateTo("/blazor-admin-dashboard/");
     }
 
     public void Dispose()

@@ -37,7 +37,7 @@
 
     private string PersonName { get; set; }
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
 
         AppName = configuration["AppName"];
@@ -50,7 +50,7 @@
         Menus = new List<NavigationMenu> {
                         new NavigationMenu {
                             MenuId = 10,
-                            Link = "/",
+                            Link = "/blazor-admin-dashboard/",
                             ParentId = 0,
                             Text = "Dashboard",
                             IconClass = "fas fa-home",

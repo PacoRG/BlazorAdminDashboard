@@ -20,7 +20,7 @@ namespace BlazorAdminDashboard.Client
             {
                 var environementChooser = environmentChooserFactory();
 
-                var uri = new Uri(s.GetRequiredService<IUriHelper>().GetAbsoluteUri());
+                var uri = new Uri(s.GetRequiredService<NavigationManager>().Uri);
 
                 System.Reflection.Assembly assembly = typeof(TResource).Assembly;
 

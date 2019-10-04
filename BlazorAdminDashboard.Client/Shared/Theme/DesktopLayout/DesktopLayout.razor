@@ -11,16 +11,17 @@
 
 @code {
 
-    private bool IsMinified { get; set; }
-    private bool IsHiddenHeader { get; set; } = false;
-    private bool IsHiddenFooter { get; set; } = false;
-    private bool IsHiddenNavigation { get; set; } = false;
+    public bool IsMinified { get; set; }
+    public bool IsHiddenHeader { get; set; } = false;
+    public bool IsHiddenFooter { get; set; } = false;
+    public bool IsHiddenNavigation { get; set; } = false;
 
-    private LocalStorageData LocalStorageData { get; set; } = new LocalStorageData();
+    public LocalStorageData LocalStorageData { get; set; } = new LocalStorageData();
 
-    [Parameter] RenderFragment ChildContent { get; set; }
+    [Parameter] 
+    public RenderFragment ChildContent { get; set; }
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
 
         ThemeMessageService.GetMessage().Subscribe(async p =>
@@ -44,7 +45,7 @@
         });
     }
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
 
         LocalStorageData.Rights = new Rights();
