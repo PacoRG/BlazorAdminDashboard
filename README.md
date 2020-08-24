@@ -12,3 +12,6 @@ Administration Dashboard Theme base on Blazor
 
 # Live demo:
 https://www.blgrid.com/
+
+# Nuget
+https://www.nuget.org/packages/DnetAdminDashboard/
