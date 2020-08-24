@@ -1,0 +1,51 @@
+﻿@inject IThemeMessageService<ThemeConfigData> ThemeMessageService
+@inject NavigationManager NavigationManager
+@page "/Paging"
+@using System.IO
+@using DnetAdminDashboard.Infrastructure.Enums
+@using DnetAdminDashboard.Infrastructure.Interfaces
+@using DnetAdminDashboard.Infrastructure.Models
+@using DnetAdminDashboard.Infrastructure.Services
+@using ServerSide.Infrastructure.HelperClasses
+
+<div class="container-fluid" style="padding-bottom: 5px;">
+    <div class="row" style="height: calc(100% - 0px)">
+        <div class="col-12" style="height: calc(100% - 0px); padding: 40px;">
+            <div>
+                <span>Paging</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    protected override void OnInitialized()
+    {
+        SetupTheme();
+    }
+
+    private void SetupTheme()
+    {
+        var themeConfigData = new ThemeConfigData()
+        {
+            IsDesktopMode = true,
+            IsFooterHidden = false,
+            IsHeaderHidden = false,
+            IsLeftColumnHidden = false,
+            IsLeftColumnFixed = true,
+            IsHeaderFixed = true,
+            ShowMinifier = true
+        };
+
+        var actionMessage = new ActionMessage<ThemeConfigData>
+        {
+            Emitter = ThemeMessageEmitter.DefaultComponent,
+            Data = themeConfigData
+        };
+
+        ThemeMessageService.SendMessage(actionMessage);
+    }
+
+}
+

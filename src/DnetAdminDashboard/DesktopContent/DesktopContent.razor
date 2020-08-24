@@ -1,0 +1,14 @@
+@using DnetAdminDashboard.DesktopLayout
+@using DnetAdminDashboard.Infrastructure.Interfaces
+@using DnetAdminDashboard.Infrastructure.Models
+@using DnetAdminDashboard.Infrastructure.Services
+
+@inject IThemeMessageService<ThemeConfigData> ThemeMessageService
+
+<div class="dnet-desktop-content">@ChildContent</div>
+
+@code {
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

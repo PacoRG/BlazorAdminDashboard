@@ -1,0 +1,130 @@
+@using DnetAdminDashboard.Infrastructure.Enums
+@using DnetAdminDashboard.Infrastructure.HelperClasses
+@using DnetAdminDashboard.Infrastructure.Interfaces
+@using DnetAdminDashboard.Infrastructure.Models
+@using DnetAdminDashboard.Infrastructure.Services
+@using DnetAdminDashboard.Infrastructure.Services.CssBuilder
+@using Microsoft.JSInterop
+
+@inject IThemeMessageService<ThemeConfigData> ThemeMessageService
+@inject IJSRuntime JSRuntime
+
+@implements IDisposable;
+
+<div class="@CssClasses">
+    <CascadingValue Value="this">
+        @ChildContent
+    </CascadingValue>
+</div>
+
+@code {
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    public bool IsHeaderFixed { get; set; } = true;
+
+    public bool IsLeftColumnFixed { get; set; } = true;
+
+    public bool ShowMinifier { get; set; } = true;
+
+    public bool IsMinified { get; set; }
+
+    public bool IsHiddenHeader { get; set; } = false;
+
+    public bool IsHiddenFooter { get; set; } = true;
+
+    public bool IsLeftColumnHidden { get; set; } = false;
+
+    public bool IsDesktopMode { get; set; } = true;
+
+    public string CssClasses { get; set; }
+
+    public LocalStorageData LocalStorageData { get; set; } = new LocalStorageData();
+
+
+    protected override void OnInitialized()
+    {
+        CssClasses = GetCssClasses();
+
+        ((ThemeMessageService<ThemeConfigData>)ThemeMessageService).OnMessage += MessageReceived;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var localStorageData = await DnetAdminDashboardInterop.GetAsync<LocalStorageData>(JSRuntime, "BlazorTestApp");
+
+            if (localStorageData != null)
+            {
+                IsMinified = localStorageData.IsMinified;
+
+                CssClasses = GetCssClasses();
+                StateHasChanged();
+            }
+        }
+    }
+
+    private string GetCssClasses()
+    {
+        var classes = new CssBuilder()
+            .AddClass("dnet-desktop-layout")
+            .AddClass("minified", when: IsMinified)
+            .AddClass("hidden-header", when: IsHiddenHeader)
+            .AddClass("hidden-footer", when: IsHiddenFooter)
+            .AddClass("hidden-left-column", when: IsLeftColumnHidden)
+            .AddClass("destok-layout", when: IsDesktopMode)
+            .AddClass("fixed-left-column", when: IsLeftColumnFixed)
+            .AddClass("fixed-header", when: IsHeaderFixed)
+            .Build();
+
+        return classes;
+    }
+
+    private async void MessageReceived(ActionMessage<ThemeConfigData> themeConfigData)
+    {
+        if (themeConfigData.Emitter == ThemeMessageEmitter.DesktopMinifyMenu)
+        {
+            IsMinified = themeConfigData.Data.IsMinified;
+
+            CssClasses = GetCssClasses();
+
+            LocalStorageData.IsMinified = themeConfigData.Data.IsMinified;
+
+            await DnetAdminDashboardInterop.SetAsync(JSRuntime, "BlazorTestApp", LocalStorageData);
+
+        }
+        else
+        {
+            IsHiddenHeader = themeConfigData.Data.IsHeaderHidden;
+
+            IsHiddenFooter = themeConfigData.Data.IsFooterHidden;
+
+            IsLeftColumnHidden = themeConfigData.Data.IsLeftColumnHidden;
+
+            IsDesktopMode = themeConfigData.Data.IsDesktopMode;
+
+            IsHeaderFixed = themeConfigData.Data.IsHeaderFixed && !themeConfigData.Data.IsHeaderHidden;
+
+            IsLeftColumnFixed = themeConfigData.Data.IsLeftColumnFixed && !themeConfigData.Data.IsLeftColumnHidden;
+
+            ShowMinifier = themeConfigData.Data.ShowMinifier;
+
+            if (IsLeftColumnHidden)
+            {
+                IsMinified = false;
+            }
+
+            CssClasses = GetCssClasses();
+        }
+
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        ((ThemeMessageService<ThemeConfigData>)ThemeMessageService).OnMessage -= MessageReceived;
+    }
+
+}
